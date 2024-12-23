@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LDC Calçados</title>
+    <!-- Ícone da Página -->
+    <link rel="icon" type="image/png" href="imgs/1.png">
+    <link rel="stylesheet" href="login.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Estilos CSS -->
+  
+</head>
+<body>
+
+    
+    
+    <!-- Header -->
+    <header>
+        <div class="interface">
+            <section class="logo">
+                <a href="index.html"><img src="Logo sem fundo.png" alt="LDC Calçados"></a>
+            </section>
+            <!-- Fecha logo -->
+
+            <section class="menu-desktop">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Pagina Inicial</a></li>
+
+                    </ul>
+                </nav>
+            </section>
+            <!-- Fecha menu-desktop -->
+
+            <section class="btn-login">
+                <a href="login.html">
+                    <button>Cadastro / Login</button>
+                </a>
+            </section>
+        </div> <!-- Fecha interface -->
+    </header>
+    <!-- Fecha Header -->
+
+    <!-- ------------------------------------------------------------- -->
+      
+    <!-- Sessão de Login -->
+    <section class="login-section">
+        <section class="cadastro-section">
+            <div class="cadastro-container">
+                <h2>Cadastro</h2>
+                <form id="cadastroForm">
+                    <label for="novoUsuario">Usuário</label>
+                    <input type="text" id="novoUsuario" placeholder="Escolha seu usuário" required>
+        
+                    <label for="novaSenha">Senha</label>
+                    <input type="password" id="novaSenha" placeholder="Escolha sua senha" required>
+        
+                    <button type="submit">Cadastrar</button>
+                </form>
+                <div class="links">
+                    <a href="#login-section">Já tem uma conta? Faça login</a>
+                </div>
+            </div>
+        </section>
+        
+    <!-- Fecha Sessão de Login -->
+
+    <!-- ------------------------------------------------------------- -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="interface">
+            <div class="linha-footer">
+                <div class="flex">
+                    <div class="logo-footer">
+                        <img src="Logo sem fundo.png" alt="logo rodapé" width="100px">
+                    </div> <!-- Fecha logo footer-->
+                    <div class="btn-social">
+                        <a href="#"><button><i class="bi bi-instagram"></i></button></a>
+                        <a href="#"><button><i class="bi bi-twitter-x"></i></button></a>
+                        <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
+                    </div> <!--Fecha btn social-->
+                </div> <!-- Fecha Flex-->
+            </div> <!--Fecha linha footer-->
+            
+            <div class="linha-footer borda">
+                <p><i class="bi bi-envelope-fill"></i> <a href="mailto:emailteste@senac.com">emailteste@senac.com</a></p>
+            </div> <!--Fecha linha footer-->
+        </div><!--Fecha interface-->
+    </footer>
+    <!-- Fecha footer -->
+
+
+
+    <script>
+        // Evento de cadastro
+        const cadastroForm = document.getElementById('cadastroForm');
+        cadastroForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            const usuario = document.getElementById('novoUsuario').value.trim();
+            const senha = document.getElementById('novaSenha').value.trim();
+    
+            if (usuario && senha) {
+                // Salva os dados no LocalStorage
+                const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+                const existeUsuario = usuarios.some(u => u.usuario === usuario);
+    
+                if (existeUsuario) {
+                    alert('Usuário já existe! Escolha outro nome.');
+                } else {
+                    usuarios.push({ usuario, senha });
+                    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+                    alert('Cadastro realizado com sucesso!');
+                    cadastroForm.reset();
+                }
+            } else {
+                alert('Preencha todos os campos!');
+            }
+        });
+    
+        // Evento de login
+        const loginForm = document.querySelector('form[action="process_login.php"]');
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+    
+            const usuario = document.getElementById('username').value.trim();
+            const senha = document.getElementById('password').value.trim();
+    
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            const usuarioEncontrado = usuarios.find(u => u.usuario === usuario && u.senha === senha);
+    
+            if (usuarioEncontrado) {
+                alert('Login realizado com sucesso!');
+                // Redirecionar ou abrir nova página
+                window.location.href = 'dashboard.html'; 
+            } else {
+                alert('Usuário ou senha incorretos!');
+            }
+        });
+    </script>
+    
+
+
+
+    
+
+</body>
+</html>

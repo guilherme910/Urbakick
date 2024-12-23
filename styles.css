@@ -1,0 +1,132 @@
+/* Estilo geral da página com design dark */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #cccccc; /* Mudança na cor do texto para um tom mais suave */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilizando a barra de navegação */
+nav {
+    background-color: #1f1f1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+nav ul, footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li{
+    margin: 0 15px;
+}
+
+nav ul li a{
+    color: #cccccc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffa07a; /* Cor menos chamativa ao passar o mouse */
+}
+
+footer ul li p {
+    color: #cccccc;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+footer ul li p:hover {
+    color: #ffa07a; /* Cor menos chamativa ao passar o mouse */
+}
+
+button{
+    padding: 7px 18px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #ffa07a;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover{
+    box-shadow: 0px 0px 10px #ffffff;
+    transform: scale(1.05);
+}
+
+/* Estilo da página principal */
+#home {
+    text-align: center;
+    padding: 50px 0;
+}
+
+#home h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffa07a; /* Cor suavizada */
+}
+
+/* Galeria de imagens com links para as marcas */
+.galeria {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.galeria img {
+    width: 200px; /* Padroniza a largura das imagens */
+    height: 200px; /* Padroniza a altura das imagens */
+    object-fit: cover; /* Mantém a proporção e evita esticamento */
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galeria img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 160, 122, 0.7);
+}
+
+/* Estilo das seções de informações das marcas */
+.marca-info {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.logo {
+    width: 100px; /* Padroniza o tamanho das logos */
+    height: 100px; /* Padroniza a altura das logos */
+    object-fit: contain; /* Mantém a proporção sem esticar */
+    margin: 0 20px;
+}
+
+.texto {
+    flex: 1;
+}
+
+.texto h2 {
+    color: #ffa07a; /* Cor suavizada para os títulos das marcas */
+}
+
+footer{
+    background-color: #1f1f1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}

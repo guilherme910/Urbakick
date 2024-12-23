@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - LDC Calçados</title>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="index.css">
+    <!-- Ícone da Página -->
+    <link rel="icon" type="image/png" href="imgs/1.png">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="interface">
+            <section class="logo">
+                <a href="index.html"><img src="Logo sem fundo.png" alt="LDC Calçados"></a>
+            </section>
+            <!-- Menu -->
+            <section class="menu-desktop">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Página Inicial</a></li>
+                        <li><a href="equipe.html">Desenvolvedores</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </div>
+    </header>
+
+    <!-- Conteúdo do Carrinho -->
+    <section class="carrinho">
+        <div class="interface">
+            <h1>Meu <span>Carrinho</span></h1>
+            <p>Confira os itens adicionados ao seu carrinho:</p>
+
+            <!-- Tabela de itens -->
+            <div class="tabela-carrinho">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Preço</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tênis Nike Air Max</td>
+                            <td>1</td>
+                            <td>R$ 499,99</td>
+                            <td>R$ 499,99</td>
+                        </tr>
+                        <tr>
+                            <td>Tênis Adidas Grand Court</td>
+                            <td>2</td>
+                            <td>R$ 329,99</td>
+                            <td>R$ 659,98</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Total e opções -->
+            <div class="resumo-carrinho">
+                <h2>Total: <span>R$ 1.159,97</span></h2>
+                <div class="opcoes-carrinho">
+                    <button class="btn-continuar"><a href="index.html">Continuar Comprando</a></button>
+                    <button class="btn-finalizar">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="interface">
+            <div class="linha-footer">
+                <div class="flex">
+                    <div class="logo-footer">
+                        <img src="Logo sem fundo.png" alt="logo rodapé" width="100px">
+                    </div>
+                    <div class="btn-social">
+                        <a href="#"><button><i class="bi bi-instagram"></i></button></a>
+                        <a href="#"><button><i class="bi bi-twitter-x"></i></button></a>
+                        <a href="#"><button><i class="bi bi-linkedin"></i></button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="linha-footer borda">
+                <p><i class="bi bi-envelope-fill"></i> <a href="mailto:emailteste">emailteste@senac.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+        const cartTable = document.querySelector('.tabela-carrinho tbody');
+        const cart = JSON.parse(localStorage.getItem('cart')) || []; // Recupera o carrinho do localStorage
+    
+        function renderCart() {
+            cartTable.innerHTML = ''; // Limpa a tabela para recriar os itens
+            let total = 0;
+    
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity; // Calcula o total do item
+                total += itemTotal;
+    
+                const row = `
+                    <tr>
+                        <td>
+                            <img src="${item.image}" alt="${item.name}" width="50"> 
+                            ${item.name}
+                        </td>
+                        <td>
+                            <input type="number" min="1" value="${item.quantity}" data-index="${index}">
+                        </td>
+                        <td>R$ ${item.price.toFixed(2)}</td>
+                        <td>R$ ${itemTotal.toFixed(2)}</td>
+                        <td>
+                            <button class="remover" data-index="${index}">Remover</button>
+                        </td>
+                    </tr>
+                `;
+                cartTable.insertAdjacentHTML('beforeend', row); // Adiciona o item à tabela
+            });
+    
+            // Atualiza o total do carrinho
+            document.querySelector('.resumo-carrinho h2 span').innerText = `R$ ${total.toFixed(2)}`;
+        }
+    
+        // Atualiza a quantidade dos produtos
+        cartTable.addEventListener('input', event => {
+            if (event.target.type === 'number') {
+                const index = event.target.getAttribute('data-index');
+                const newQuantity = parseInt(event.target.value, 10);
+    
+                if (newQuantity > 0) {
+                    cart[index].quantity = newQuantity; // Atualiza a quantidade
+                    localStorage.setItem('cart', JSON.stringify(cart)); // Salva no localStorage
+                    renderCart(); // Recarrega o carrinho
+                }
+            }
+        });
+    
+        // Remove um item do carrinho
+        cartTable.addEventListener('click', event => {
+            if (event.target.classList.contains('remover')) {
+                const index = event.target.getAttribute('data-index');
+                cart.splice(index, 1); // Remove o item do array
+                localStorage.setItem('cart', JSON.stringify(cart)); // Atualiza o localStorage
+                renderCart(); // Recarrega o carrinho
+            }
+        });
+    
+        renderCart(); // Renderiza o carrinho ao carregar a página
+    </script>
+    
+    
+</body>
+</html>
+
+
+<style>
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Sessão Carrinho */
+.carrinho h1 {
+    text-align: center;
+    color: #FF0000;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #525252;
+}
+
+table th {
+    background-color: #FF0000;
+    color: #000;
+    font-weight: 700;
+}
+
+table td input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+}
+
+table .remover {
+    background-color:#FF0000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+table .remover:hover {
+    background-color: #fff;
+    color: #FF0000;
+}
+
+.resumo {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.resumo p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #FF0000;
+}
+
+.resumo .checkout {
+    background-color: #FF0000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.resumo .checkout:hover {
+    background-color: #fff;
+    color: #FF0000;
+}
+
+</style>

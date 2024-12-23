@@ -1,0 +1,318 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    user-select: none;
+}
+
+body{
+    background-color: #000000;
+}
+
+.interface{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* ------------------------------------------------------------- */
+
+/* Estilo do header */
+
+header{
+    width: 100%;
+    padding: 10px 0;
+    font-weight: 500;
+}
+
+header .interface{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Sessão Logo */
+
+header .logo{
+    cursor: pointer;
+}
+
+header .logo img{
+    max-width: 150px;
+}
+
+header a{
+    color: #525252;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header a:hover{
+    color: #fff;
+    transform: scale(1.10);
+}
+
+/* Sessão NavBar */
+
+header .menu-desktop nav ul{
+    list-style-type: none;
+}
+
+header .menu-desktop nav ul li{
+    display: inline-block;
+    margin: 0 40px;
+}
+
+header .menu-desktop nav ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header .menu-desktop nav a:hover{
+    color: #525252;
+    transform: scale(1.05);
+}
+
+/* Sessão Botão */
+
+header .btn-login button{
+    padding: 7px 18px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #FF0000;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+header .btn-login button:hover{
+    box-shadow: 0px 0px 10px #ffffff;
+    transform: scale(1.05);
+}
+
+
+/* ------------------------------------------------------------- */
+
+/* Estilo Sessão 1 - Topo do site */
+
+section .topo-do-site{
+    padding: 40px 10%;
+}
+
+.topo-do-site h1{
+    padding: 30px 0;
+    color: #ffffff;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.topo-do-site h1 span{
+    color: #FF0000;
+    text-align: center;
+}
+
+.topo-do-site p{
+    padding: 5px 0px;
+    text-align: justify;
+    color: #ffffff;
+}
+
+.topo-do-site h2{
+    text-align: center;
+    padding: 30px 0;
+    font-size: 30px;
+    color: #FF0000;
+    font-weight: 700;
+}
+
+/* ------------------------------------------------------------- */
+
+/* Sessão 2 - Marcas */
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 100px;
+}
+
+.f-marca{
+    display: flex;
+  flex-direction: column; /* Para alinhar verticalmente */
+  align-items: center; /* Centraliza na horizontal */
+  justify-content: center; /* Centraliza na vertical */
+}
+
+.f-marca img{
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    transition: .2s;
+}
+
+.f-marca img:hover{
+    box-shadow: 0px 0px 10px #FF0000;
+    transition: .3s;
+    transform: scale(1.05);
+}
+
+.f-marca a{
+    padding: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.f-marca a:hover{
+    color: #FF0000;
+    transform: scale(1.05);
+}
+
+/* ------------------------------------------------------------- */
+
+/* Sessão 3 - Sobre as marcas */
+
+.i-marca{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.img-sobre img{
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.txt-sobre{
+    padding: 20px;
+}
+
+.txt-sobre h2{
+    color: #FF0000;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.txt-sobre span{
+    color: #ffffff;
+}
+
+.txt-sobre p{
+    padding: 20px 10%;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: justify;
+}
+
+/* ------------------------------------------------------------- */
+
+/* Estilo footer */
+
+footer{
+    padding: 20px 4%;
+    margin-top: 40px;
+    box-shadow: 0 0 40px 10px #FF0000;
+}
+
+footer .logo-footer img{
+    width: 150px;
+}
+
+footer .flex{
+    justify-content: space-between;
+}
+
+footer .linha-footer{
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: #FF0000;
+}
+
+.borda{
+    border-top: 2px solid #FF0000;
+}
+
+footer .linha-footer p i{
+    color: #FF0000;
+    font-size: 25px;
+}
+
+footer .linha-footer p a{
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}   
+
+.btn-social button{
+    font-size: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #FF0000;
+    border: 0;
+    transition: .2s;
+    cursor: pointer;
+    margin: 30px 5px;
+}
+
+.btn-social button:hover{
+    box-shadow: 0px 0px 10px #ffffff;
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+/* Estilo do Carrossel */
+/* Estilo do container do carrossel */
+.carrossel-container {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Mantém a estética da página */
+    overflow: hidden;
+}
+
+/* Estilo do carrossel */
+.carrossel {
+    display: flex;
+    gap: 100px; /* Distância entre as imagens */
+    transition: transform 0.5s ease;
+    width: 80%; /* Controla o tamanho geral do carrossel */
+    justify-content: center;
+}
+
+/* Imagens do carrossel */
+.carrossel img {
+    width: 250px; /* Dimensão menor */
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 0 10px #FF0000;
+    transition: transform 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre a imagem */
+.carrossel img:hover {
+    transform: scale(1.05);
+}
+

@@ -1,0 +1,260 @@
+/* Reseta margens e espaçamentos de todos os elementos para padronizar */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    user-select: none; /* Impede a seleção de texto */
+}
+
+/* Define a cor de fundo da página */
+body{
+    background-color: #000000;
+}
+
+/* Estilo da classe "interface" para centralizar o conteúdo */
+.interface{
+    max-width: 1280px;
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* ------------------------------------------------------------- */
+
+/* Estilos do cabeçalho (header) */
+
+header{
+    width: 100%;
+    padding: 10px 0;
+    font-weight: 500;
+}
+
+/* Alinha elementos dentro do cabeçalho */
+header .interface{
+    display: flex;
+    justify-content: space-between; /* Distribui o espaço igualmente */
+    align-items: center; /* Alinha verticalmente */
+}
+
+/* Estilo da logo no cabeçalho */
+
+header .logo{
+    cursor: pointer; /* Muda o cursor ao passar sobre a logo */
+}
+
+/* Define o tamanho máximo da imagem da logo */
+header .logo img{
+    max-width: 150px;
+}
+
+/* Estilo dos links do cabeçalho */
+header a{
+    color: #525252;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s; /* Transição suave para o hover */
+}
+
+/* Efeito ao passar o mouse sobre os links */
+header a:hover{
+    color: #fff;
+    transform: scale(1.10); /* Aumenta levemente o tamanho */
+}
+
+/* ------------------------------------------------------------- */
+
+/* Estilos da barra de navegação (NavBar) */
+
+header .menu-desktop nav ul{
+    list-style-type: none; /* Remove o estilo de lista padrão */
+}
+
+/* Estilo dos itens de lista na barra de navegação */
+header .menu-desktop nav ul li{
+    display: inline-block; /* Deixa os itens na horizontal */
+    margin: 0 40px; /* Espaçamento entre os itens */
+}
+
+/* Estilo dos links da barra de navegação */
+header .menu-desktop nav ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s; /* Transição suave para o hover */
+}
+
+/* Efeito de hover para links da barra de navegação */
+header .menu-desktop nav a:hover{
+    color: #525252;
+    transform: scale(1.05); /* Aumenta levemente o tamanho */
+}
+
+/* ------------------------------------------------------------- */
+
+/* Estilos do botão de login/cadastro */
+
+header .btn-login button{
+    padding: 7px 18px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #FF0000; /* Cor de fundo do botão */
+    border: 0;
+    border-radius: 5px; /* Arredonda as bordas */
+    cursor: pointer;
+    transition: .2s;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Efeito de hover para o botão de login/cadastro */
+header .btn-login button:hover{
+    box-shadow: 0px 0px 10px #ffffff; /* Sombra branca ao redor */
+    transform: scale(1.05); /* Aumenta levemente o botão */
+}
+
+/* ------------------------------------------------------------- */
+
+/* Estilo para a seção "Sobre os membros" */
+
+.i-membro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 80px; /* Espaçamento interno */
+}
+
+/* Estilo para a imagem de cada membro */
+.img-sobre img{
+    border-radius: 20px; /* Arredonda bordas da imagem */
+    width: 400px;
+    height: 400px;
+    object-fit: cover; /* Cobre a área sem distorcer */
+}
+
+/* Estilo para o contêiner de informações do membro */
+.info{
+    display: flex;
+    flex-direction: column; /* Alinha o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo */
+    justify-content: center; /* Centraliza verticalmente */
+}
+
+/* Estilo do texto sobre o membro */
+.txt-sobre{
+    padding: 20px;
+}
+
+/* Estilo do título com o nome do membro */
+.txt-sobre h2{
+    color: #FF0000; /* Cor do texto */
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Cor para o ponto antes do nome */
+.txt-sobre span{
+    color: #ffffff;
+}
+
+/* Estilo do parágrafo com a descrição do membro */
+.txt-sobre p{
+    padding: 20px 10%;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: justify;
+}
+
+/* Estilo para os botões de redes sociais */
+.btn-social button{
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #FF0000;
+    border: 0;
+    transition: .2s;
+    cursor: pointer;
+    margin: 30px 5px; /* Espaçamento entre botões */
+}
+
+/* Efeito de hover para os botões de redes sociais */
+.btn-social button:hover{
+    box-shadow: 0px 0px 10px #ffffff; /* Sombra branca ao redor */
+    transform: scale(1.05); /* Aumenta levemente o botão */
+}
+
+/* ------------------------------------------------------------- */
+
+/* Estilos do rodapé (footer) */
+
+footer{
+    padding: 20px 4%; /* Espaçamento interno do rodapé */
+    margin-top: 40px;
+    box-shadow: 0 0 40px 10px #FF0000; /* Sombra do rodapé */
+}
+
+/* Estilo do contêiner flexível no rodapé */
+.flex{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 100px; /* Espaçamento interno */
+}
+
+/* Define o tamanho da logo no rodapé */
+footer .logo-footer img{
+    width: 150px;
+}
+
+/* Centraliza conteúdo dentro do contêiner flexível do rodapé */
+footer .flex{
+    justify-content: space-between;
+}
+
+/* Estilo das linhas de informações no rodapé */
+footer .linha-footer{
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: #FF0000;
+}
+
+/* Adiciona uma borda superior na seção */
+.borda{
+    border-top: 2px solid #FF0000;
+}
+
+/* Cor e tamanho do ícone de e-mail no rodapé */
+footer .linha-footer p i{
+    color: #FF0000;
+    font-size: 25px;
+}
+
+/* Estilo do link de e-mail no rodapé */
+footer .linha-footer p a{
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* ------------------------------------------------------------- */
+
+/* Estilo dos botões sociais do rodapé */
+
+.btn-footer button{
+    font-size: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px; /* Deixa o botão redondo */
+    background-color: #FF0000;
+    border: 0;
+    transition: .2s;
+    cursor: pointer;
+    margin: 30px 5px;
+}
+
+/* Efeito de hover para os botões sociais do rodapé */
+.btn-footer button:hover{
+    box-shadow: 0px 0px 10px #ffffff; /* Sombra branca ao redor */
+    transform: scale(1.05); /* Aumenta levemente o botão */
+}
